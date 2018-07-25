@@ -22,8 +22,8 @@ export default class RegisterScreen extends Component {
       super(props)
     
       this.state = {
-         username:'',
-         password:''
+         Name:'',
+         Pwd:''
       }
     }
     
@@ -40,16 +40,16 @@ export default class RegisterScreen extends Component {
         <List>
             <InputItem
                 type={'text'}
-                value={this.state.username}
-                onChange={(username)=>{this.setState({username})}}
+                value={this.state.Name}
+                onChange={(Name)=>{this.setState({Name})}}
                 placeholder={'请输入注册用户名'}
             >
                 用户名
             </InputItem>
             <InputItem
                 type={'text'}
-                value={this.state.password}
-                onChange={(password)=>{this.setState({password})}}
+                value={this.state.Pwd}
+                onChange={(Pwd)=>{this.setState({Pwd})}}
                 placeholder={'请输入注册密码'}
             >
                 密码
@@ -60,7 +60,7 @@ export default class RegisterScreen extends Component {
             <Button
                 type={'primary'}
                 onClick={async()=>{
-                    const result = await UserManager.Register(this.state.username,this.state.password);
+                    const result = await UserManager.Register(this.state.Name,this.state.Pwd);
                     console.log(result);
                     if(result.success === false){
                         Toast.fail(result.errorMessage);
